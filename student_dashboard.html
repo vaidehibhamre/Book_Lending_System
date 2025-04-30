@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Student Dashboard</h2>
+    <h3>Available Books</h3>
+    <ul>
+    {% for book in books %}
+        <li>Book ID: {{ book[0] }}, Author: {{ book[1] }}, Available: {{ 'Yes' if not book[2] else 'No' }}
+        {% if not book[2] %}
+            <form method="post" action="/lend_book">
+                <input type="hidden" name="book_id" value="{{ book[0] }}">
+                <label>Return Date:</label><input type="date" name="return_date" required><br>
+                <input type="submit" value="Lend Book">
+            </form>
+        {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    <a href="/student_login">Logout</a>
+</body>
+</html>

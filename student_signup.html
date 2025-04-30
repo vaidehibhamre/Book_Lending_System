@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Student Signup</h2>
+    <form method="post">
+        <label>PRN:</label><input type="text" name="prn" required><br>
+        <label>Name:</label><input type="text" name="sname" required><br>
+        <label>Branch:</label><input type="text" name="branch" required><br>
+        <label>PAN:</label><input type="text" name="pan" required><br>
+        <label>Contact:</label><input type="text" name="contact" required><br>
+        <input type="submit" value="Sign Up">
+    </form>
+</body>
+</html>
